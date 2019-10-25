@@ -1,0 +1,51 @@
+<div class="content-wrap" id="accountLogin">
+	<div class="content-title">
+		<strong>账号日志 / 账号登录日志</strong>
+	</div>
+
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+			<form role="form" class="form-inline mar-bottom30" id="accountLoginForm" onsubmit="return false;">
+				<div class="form-group">
+					<label class="col-sm-1 control-label">账号ID：</label>
+					<input type="text" class="form-control" id="accountId" data-bind="value:accountId"
+					/>
+				</div>
+				
+				<div class="form-group mar-left20">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<em id="tipShow" class="tip"></em>
+					</div>
+				</div>
+			</form>
+			<!-- table -->
+			<table class="table table-condensed table-bordered table-style">
+				<thead>
+					<tr>
+						<th>帐号ID</th>
+						<th>IP地址</th>
+						<th>MAC地址</th>
+						<th>登录设备</th>
+						<th>登录时间</th>
+					</tr>
+				</thead>
+				<tbody id="accountLogin_tbody" data-bind="foreach:dataList">
+					<tr>
+						<td data-bind="text:userId"></td>
+						<td data-bind="text:ip"></td>
+						<td data-bind="text:deviceId"></td>
+						<td data-bind="text:device"></td>
+						<td data-bind="text:logTime"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="pager" class="fr"></div>
+		</div>	<!-- /.tab-content -->
+	</div><!-- /.content-main -->
+</div>
+<script src="/static/js/pages-js/log-sum/log-account/log-accountIn.js"></script>

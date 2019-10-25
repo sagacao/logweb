@@ -1,0 +1,58 @@
+<div class="content-wrap" id="failTask">
+	<div class="content-title">
+		<strong>任务日志 / 任务失败日志</strong>
+	</div>
+
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+			<form role="form" class="form-inline mar-bottom30" id="failTaskForm">
+				<div class="form-group mar-right10">
+					<label class="col-sm-1 control-label">角色ID：</label>
+					<input type="text" class="form-control width95" id="roleId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:roleId"
+					/>
+				</div>
+			
+				<div class="form-group">
+					<label class="col-sm-1 control-label">任务ID：</label>
+					<input type="text" class="form-control width95" id="taskId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:taskId"
+					/>
+				</div>
+			
+				<div class="form-group mar-left20">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<em id="tipShow" class="tip"></em>
+					</div>
+				</div>
+			</form>
+			<table class="table table-condensed table-bordered table-style">
+				<thead>
+					<tr>
+						<th>帐号ID</th>
+						<th>角色ID</th>
+						<th>角色等级</th>
+						<th>角色职业</th>
+						<th>任务ID</th>
+						<th>创建时间</th>
+					</tr>
+				</thead>
+				<tbody id="failTask_tbody" data-bind="foreach:dataList">
+					<tr>
+						<td data-bind="text: userId"></td>
+						<td data-bind="text: playerId"></td>
+						<td data-bind="text: level"></td>
+						<td data-bind="text: occupation"></td>
+						<td data-bind="text: taskId"></td>
+						<td data-bind="text: logTime"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="pager" class="fr"></div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/log-sum/log-task/log-failTask.js"></script>

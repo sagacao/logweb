@@ -1,0 +1,74 @@
+<div class="content-wrap" id="logMoney">
+	
+	<div class="content-title">
+		<strong>虚拟日志 / 虚拟货币</strong>
+	</div>
+	
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+			<form role="form" class="form-inline mar-bottom30" id="logMoneyForm">
+				
+			    <div class="form-group mar-right10">
+			        <label class="col-sm-1 control-label">角色ID：</label>
+					<input type="text" class="form-control width95" list="roleid" id="roleId" datatype = "n" ignore='ignore' errormsg='请输入数字ID' data-bind = "value:roleId" autocomplete="off" />
+					<datalist id="roleid">
+						<!-- ko foreach: saveRoleid -->
+						<option data-bind="value: $data"></option>
+						<!-- /ko -->
+					</datalist>
+			    </div>
+			    
+				<div class="form-group mar-right10">
+			        <label class="col-sm-1 control-label">货币类型：</label>
+					<select id="mailType" class="form-control font-bold" data-bind="options: moneyType,optionsText: function(item){return item.name},optionsValue: function(item){return item.id},value: selectedMoneyType,event:{change:changeMoneyValue}">
+				    </select>
+			    </div>
+			    
+			    <div class="form-group">
+			        <label class="col-sm-1 control-label">产出/消耗：</label>
+					<select id="mailType" class="form-control font-bold" data-bind="options: numType,optionsText: function(item){return item.name},optionsValue: function(item){return item.id},value: selectedNumType,event:{change:changeNumValue}">
+				    </select>
+			    </div>
+			    
+			    <div class="form-group mar-left20">
+				    <div class="col-sm-offset-2 col-sm-10">
+				        <button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+				    </div>
+				</div>
+				
+			    <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				        <em id="tipShow" class="tip" ></em>
+				    </div>
+				</div>
+				
+   	  	 	</form>
+			<table class="table table-condensed table-bordered table-style">
+			    <thead>
+			        <tr>
+				        <th>角色ID</th>
+						<th>货币种类</th>
+						<th>总数量</th>
+				        <th>变化数量</th>
+						<th>记录时间</th>
+						<th>渠道</th>
+						<th>描述</th>
+			        </tr>
+			    </thead>
+			    <tbody id="logMoney_tbody" data-bind = "foreach:dataList">
+			        <tr>
+				        <td data-bind = "text: playerId"></td>
+						<td data-bind = "text: moneyType"></td>
+						<td data-bind = "text: totalCount"></td>
+						<td data-bind = "text: delta"></td>
+						<td data-bind = "text: logTime"></td>
+						<td data-bind = "text: reason"></td>
+						<td data-bind = "text: depict"></td>
+			        </tr>
+			   </tbody>
+			</table>
+			<div id="pager" class="fr"></div>
+		</div>
+	</div>
+</div> 
+<script type="text/javascript" src="/static/js/pages-js/log-sum/log-money/log-money.js" ></script>

@@ -1,0 +1,64 @@
+<div class="content-wrap" id="logAuctionSuccess">
+	<div class="content-title">
+		<strong>拍卖行日志 / 拍卖成交日志</strong>
+	</div>
+
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+			<form role="form" class="form-inline mar-bottom30" id="auctionSuccessForm">
+				<div class="form-group mar-right10">
+					<label class="col-sm-1 control-label">卖方ID：</label>
+					<input type="text" class="form-control width95" id="buyerId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:buyerId"
+					/>
+				</div>
+			
+				<div class="form-group">
+					<label class="col-sm-1 control-label">物品ID：</label>
+					<input type="text" class="form-control width95" id="itemId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:itemId"
+					/>
+				</div>
+			
+				<div class="form-group mar-left20">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<em id="tipShow" class="tip"></em>
+					</div>
+				</div>
+			</form>
+			<table class="table table-condensed table-bordered table-style">
+				<thead>
+					<tr>
+						<th>拍卖订单ID</th>
+						<th>卖方玩家ID</th>
+						<th>买方玩家ID</th>
+						<th>物品ID</th>
+						<th>物品个数</th>
+						<th>本次花费</th>
+						<th>手续费</th>
+						<th>拍卖类型</th>
+						<th>成交时间</th>
+					</tr>
+				</thead>
+				<tbody id="auctionSuccess_tbody" data-bind="foreach: dataList">
+					<tr>
+						<td data-bind="text: auctionId"></td>
+						<td data-bind="text: sellerId"></td>
+						<td data-bind="text: buyerId"></td>
+						<td data-bind="text: itemId"></td>
+						<td data-bind="text: itemCount"></td>
+						<td data-bind="text: price"></td>
+						<td data-bind="text: fee"></td>
+						<td data-bind="text: auctionType"></td>
+						<td data-bind="text: logTime"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="pager" class="fr"></div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/log-sum/log-auction/log-auctionSuccess.js"></script>

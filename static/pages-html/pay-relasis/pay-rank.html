@@ -1,0 +1,93 @@
+<div class="content-wrap" id="payRank">
+	<div class="content-title">
+		<strong>付费分析</strong>
+		<a href="#" class="export" id="priceExport" data-bind="click:exportExcel"></a>
+	</div>
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li id="payRankTotal" data-bind="click:payRankTotal">
+				<a href="#payRankTotalWrap" data-toggle="tab">累计付费排行</a>
+			</li>
+			<li id="payRankCur" data-bind="click:payRankCur">
+				<a href="#payRankCurWrap" data-toggle="tab">时段付费排行</a>
+			</li>
+		</ul>
+
+		<div class="tab-content tabContent">
+			<!--累计付费排行-->
+			<div id="payRankTotalWrap" class="tab-pane fade">
+				<table class="table table-bordered table-condensed table-style">
+					<thead>
+						<tr>
+							<th>排名</th>
+							<th>角色ID</th>
+							<th>角色昵称</th>
+							<th>充值金额</th>
+							<th class="order-by" data-bind="click:goldLeft">剩余钻石
+								<!-- <span class="icon-arrow-down"></span> -->
+							</th>
+							<th class="order-by" data-bind="click:curRank">当前等级
+								<!-- <span class="icon-arrow-down"></span> -->
+							</th>
+							<th class="order-by" data-bind="click:loginTime">注册时间
+								<!-- <span class="icon-arrow-down"></span> -->
+							</th>
+							<th>区服</th>
+							<th>安卓/IOS</th>
+							<th class="order-by" data-bind="click:lastLoginTime">最后一次充值时间
+								<!-- <span class="icon-arrow-up"></span> -->
+							</th>
+						</tr>
+					</thead>
+					<tbody id="pay_rankTotal" data-bind="foreach: totalDataList">
+						<tr>
+							<td data-bind="text: rank"></td>
+							<td data-bind="text: playerId"></td>
+							<td data-bind="text: name"></td>
+							<td data-bind="text: amount"></td>
+							<td data-bind="text: gold"></td>
+							<td data-bind="text: level"></td>
+							<td data-bind="text: createTime"></td>
+							<td data-bind="text: zeusidName"></td>
+							<td data-bind="text: systemName"></td>
+							<td data-bind="text: lastLoginTime"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pager_1" class="fr"></div>
+			</div>
+
+			<!--时段付费排行-->
+			<div id="payRankCurWrap" class="tab-pane fade">
+				<table class="table table-condensed table-bordered table-style">
+					<thead>
+						<tr>
+							<th>排名</th>
+							<th>角色昵称</th>
+							<th>充值金额</th>
+							<th>注册时间</th>
+							<th>角色ID</th>
+							<th>区服</th>
+							<th>渠道</th>
+							<th>最后一次充值时间</th>
+						</tr>
+					</thead>
+					<tbody id="pay_rankTotal" data-bind="foreach: intervalDataList">
+						<tr>
+							<td data-bind="text: rank"></td>
+							<td data-bind="text: name"></td>
+							<td data-bind="text: amount"></td>
+							<td data-bind="text: createTime"></td>
+							<td data-bind="text: playerId"></td>
+							<td data-bind="text: zeusidName"></td>
+							<td data-bind="text: channelidName"></td>
+							<td data-bind="text: lastLoginTime"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pager_2" class="fr"></div>
+			</div>
+		</div><!-- /.tab-content -->
+	</div><!-- /.content-main -->
+</div>
+<script src="/static/js/pages-js/pay-relasis/pay-rank.js"></script>

@@ -1,0 +1,108 @@
+<div class="content-wrap" id="userCon">
+	<div class="content-title">
+		<strong>付费分析</strong>
+		<a href="javascript:void(0);" class="export" data-bind="click:exportExcel"></a>
+	</div>
+
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:void(0);">用户贡献</a></li>
+		</ul>
+		<div class="tab-content tabContent">
+
+			<div class="chart-wrap">
+				<div id="chart-spline"></div>
+			</div>
+			<div style="width: 100%; overflow: hidden;">
+				<div style="float: left; width: auto;">
+					<table class="table table-bordered tab-condensed table-style" style="width: 100%;">
+						<thead>
+							<tr>
+								<th>日期</th>
+							</tr>
+						</thead>
+						<tbody data-bind="foreach:dataList">
+							<tr>
+								<td data-bind="text: dimDay"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div style="float: left; width: 90%; overflow-x: auto; margin-left: -1px;">
+					<table class="table table-bordered tab-condensed table-style" id="userconTable" style="width: 1430px;">
+						<thead>
+							<tr>
+								<th>人数</th>
+								<th>3日付费</th>
+								<th>3日LTV</th>
+								<th>7日付费</th>
+								<th>7日LTV</th>
+								<th>14日付费</th>
+								<th>14日LTV</th>
+								<th>30日付费</th>
+								<th>30日LTV</th>
+								<th>60日付费</th>
+								<th>60日LTV</th>
+								<th>90日付费</th>
+								<th>90日LTV</th>
+								<th>120日付费</th>
+								<th>120日LTV</th>
+								<th>150日付费</th>
+								<th>150日LTV</th>
+								<th>180日付费</th>
+								<th>180日LTV</th>
+							</tr>
+						</thead>
+						<tbody id="user_con" data-bind="foreach:dataList">
+							<tr>
+								<td data-bind="text: player3"></td>
+
+								<td data-bind="text: pay3"></td>
+								<td data-bind="text: dnp3"></td>
+
+								<td data-bind="text: pay7"></td>
+								<td data-bind="text: dnp7"></td>
+
+								<td data-bind="text: pay14"></td>
+								<td data-bind="text: dnp14"></td>
+
+								<td data-bind="text: pay30"></td>
+								<td data-bind="text: dnp30"></td>
+					
+								<td data-bind="text: pay60"></td>
+								<td data-bind="text: dnp60"></td>
+					
+								<td data-bind="text: pay90"></td>
+								<td data-bind="text: dnp90"></td>
+					
+								<td data-bind="text: pay120"></td>
+								<td data-bind="text: dnp120"></td>
+					
+								<td data-bind="text: pay150"></td>
+								<td data-bind="text: dnp150"></td>
+					
+								<td data-bind="text: pay180"></td>
+								<td data-bind="text: dnp180"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- <div id="pager" class="fr"></div> -->
+
+			<!-- 数据定义 -->
+			<div class="data-tip" style="margin-top: 30px;">
+				<h2>数据定义：</h2>
+				<ul>
+					<li>人数 : 某日创建的角色总数。（同账号会计算多角色，进入游戏计算为一个角色创建）</li>
+					<li>3日付费 : 该人数从创建开始3日内，的总付费金额。</li>
+					<li>3日LTV : 3日付费/人数。既该日创建的角色数，3日平均贡献的充值数</li>
+					<li>7日LTV : 7日付费/人数。既该日创建的角色数，7日平均贡献的充值数</li>
+					<li>14日LTV : 14日付费/人数。既该日创建的角色数，7日平均贡献的充值数</li>
+					<li>30日LTV : 30日付费/人数。既该日创建的角色数，7日平均贡献的充值数</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/pay-relasis/pay-user-con.js"></script>

@@ -1,0 +1,111 @@
+<div class="content-wrap" id="coinConsumption">
+	<div class="content-title">
+		<strong>货币使用 / 货币消耗</strong>
+		<a href="javascript:void(0);" class="export" target="_self" data-bind="click:exportExcel"></a>
+	</div>
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li id="cion_get" data-bind="click:coinGet">
+				<a href="#partDataPage" data-toggle="tab">银币获得</a>
+			</li>
+			<li id="coin_loss" data-bind="click:coinLoss">
+				<a href="#partDataPage" data-toggle="tab">银币消耗</a>
+			</li>
+			<li id="dia_get" data-bind="click:diaGet">
+				<a href="#partDataPage" data-toggle="tab">勾玉获得</a>
+			</li>
+			<li id="dia_loss" data-bind="click:diaLoss">
+				<a href="#partDataPage" data-toggle="tab">勾玉消耗</a>
+			</li>
+			<li id="magic_dia_get" data-bind="click:magicDiaGet">
+				<a href="#partDataPage" data-toggle="tab">金币获得</a>
+			</li>
+			<li id="magic_dia_loss" data-bind="click:magicDiaLoss">
+				<a href="#partDataPage" data-toggle="tab">金币消耗</a>
+			</li>
+			<li id="virCoin_all" data-bind="click:virCoinTotal">
+				<a href="#vircoinOutput" data-toggle="tab">虚拟币产出消耗汇总</a>
+			</li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="partDataPage" class="clearfix">
+				<!-- 图表 -->
+				<div class="tub-wrap">
+					<div id="chart-content"></div>
+				</div>
+				<!-- tab -->
+				<div class="tabContent clearfix">
+					<table class="table table-condensed table-bordered table-style" id="consumTable">
+						<thead>
+							<tr>
+								<th>类型</th>
+								<th class="order-by" data-bind="click:getTotal">数量
+									<!-- <span class="icon-arrow-down"></span> -->
+								</th>
+							</tr>
+						</thead>
+						<tbody id="goldCoin" data-bind="foreach:dataList">
+							<tr>
+								<td data-bind="text:reason"></td>
+								<td data-bind="text:num"></td>
+							</tr>
+						</tbody>
+						<tbody  class="moneytotal">
+							<tr>
+								<td>合计</td>
+								<!-- ko foreach:MoneyTotal -->
+								<td data-bind="text:$data">-</td>
+								<!-- /ko -->
+							</tr>
+						</tbody>
+					</table>
+					<div id="pageClick_1" class="fr"></div>
+				</div>
+			</div>
+			<!--产出消耗汇总-->
+			<div id="vircoinSummary" class="clearfix tabContent">
+				<table class="table table-condensed table-bordered table-style " id="consumTotalTable">
+					<thead>
+						<tr>
+							<th>日期</th>
+							<th>银币产出</th>
+							<th>银币消耗</th>
+							<th>银币剩余</th>
+							<th>勾玉产出</th>
+							<th>勾玉消耗</th>
+							<th>勾玉剩余</th>
+							<th>金币产出</th>
+							<th>金币消耗</th>
+							<th>金币剩余</th>
+						</tr>
+					</thead>
+					<tbody id="virCoinLoss" data-bind="foreach:dataListTotal">
+						<tr>
+							<td class="one" data-bind="text:dimDay"></td>
+							<td class="two" data-bind="text:moneyGain"></td>
+							<td class="tree" data-bind="text:moneyCost"></td>
+							<td class="four" data-bind="text:moneyRemain"></td>
+							<td class="five" data-bind="text:dimmiGain"></td>
+							<td class="six" data-bind="text:dimmiCost"></td>
+							<td class="seven" data-bind="text:dimmiRemain"></td>
+							<td class="eight" data-bind="text:goldGain"></td>
+							<td class="nine" data-bind="text:goldCost"></td>
+							<td class="zero" data-bind="text:goldRemain"></td>
+						</tr>
+					</tbody>
+					<tbody class="total">
+						<tr>
+							<td>合计</td>
+							<!-- ko foreach:Total -->
+							<td data-bind="text:$data">-</td>
+							<!-- /ko -->
+						</tr>
+					</tbody>
+				</table>
+				<div id="pageClick_2" class="fr"></div>
+			</div><!--产出消耗汇总-->
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/coinUse/coin.js"></script>

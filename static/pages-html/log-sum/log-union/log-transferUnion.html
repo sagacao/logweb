@@ -1,0 +1,63 @@
+<div class="content-wrap" id="transferUnion">
+	
+	<div class="content-title">
+		<strong>工会日志 / 公会转让日志</strong>
+	</div>
+	
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+			<form role="form" class="form-inline mar-bottom30" id="transferUnionForm">
+			    
+				<div class="form-group mar-right10">
+			        <label class="col-sm-1 control-label">公会ID：</label>
+					<input type="text" class="form-control width95" id="guildId" datatype = "n" ignore='ignore' errormsg='请输入数字ID' data-bind = "value:guildId"  />
+			    </div>
+			    
+			    <div class="form-group mar-right10">
+			        <label class="col-sm-1 control-label">旧会长ID：</label>
+					<input type="text" class="form-control width95" id="oldLeaderId" datatype = "n" ignore='ignore' errormsg='请输入数字ID' data-bind = "value:oldLeaderId" />
+			    </div>
+			    
+			    <div class="form-group">
+			        <label class="col-sm-1 control-label">新会长ID：</label>
+					<input type="text" class="form-control width95" id="newLeaderId" datatype = "n" ignore='ignore' errormsg='请输入数字ID' data-bind = "value:newLeaderId" />
+			    </div>
+			    
+			    <div class="form-group mar-left20">
+				    <div class="col-sm-offset-2 col-sm-10">
+				        <button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+				    </div>
+				</div>
+			    <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				        <em id="tipShow" class="tip" ></em>
+				    </div>
+				</div>
+   	  	 	</form>
+			<table class="table table-condensed table-bordered table-style">
+			    <thead>
+			        <tr>
+				        <th>公会ID</th>
+				        <th>旧会长ID</th>
+				        <th>新会长ID</th>
+				        <th>转让时间</th>
+			        </tr>
+			    </thead>
+			    <tbody id="transferUnion_tbody" data-bind = "foreach: dataList">
+			        <tr>
+				        <td data-bind = "text: guildId"></td>
+						<td data-bind = "text: oldLeaderId"></td>
+						<td data-bind = "text: newLeaderId"></td>
+						<td data-bind = "text: logTime"></td>
+			        </tr>
+			   </tbody>
+			</table>
+			<div id="pager" class="fr"></div>
+		</div>
+	</div>
+</div> 
+<script type="text/javascript" src="/static/js/pages-js/log-sum/log-union/log-transferUnion.js" ></script>
+
+
+
+

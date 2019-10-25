@@ -1,0 +1,40 @@
+<div class="content-wrap" id="onlineSummary">
+    <div class="content-title">
+        <strong>在线数据 / 当前在线汇总</strong>
+        <a href="#" class="export" id="priceExport" data-bind="click:exportExcel"></a>
+    </div>
+    <div class="content-main mar-bottom30">
+        <div class="tab-content tabContent mar-top20" style="padding-top:16px;">
+            <p style="font-size:15px;">在线人数汇总：<b data-bind="text:rolenumSum"></b> 人</p>
+        </div>
+        <div class="tab-content tabContent mar-top20">
+            <!-- table -->
+            <table class="table table-condensed table-bordered table-style" id="onlineTable">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名字</th>
+                        <th>人数</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:serverid"></td>
+                        <td data-bind="text:servername"></td>
+                        <td data-bind="text:rolenum"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 数据定义 -->
+            <div class="data-tip">
+                <h2>数据定义：</h2>
+                <ul>
+                    <li>每日在线：计算在线的角色数量。</li>
+                    <li>刷新时间：每5分钟刷新一次。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/pages-js/onlineData/onlineSummary.js"></script>

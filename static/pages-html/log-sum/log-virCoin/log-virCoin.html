@@ -1,0 +1,63 @@
+<div class="content-wrap" id="virCoin">
+    <div class="content-title">
+        <strong>货币种类</strong>
+        <a class="export" href="#" target="_self"></a>
+    </div>
+
+    <div class="content-main">
+        <ul class="nav nav-tabs">
+            <li id="exp" data-bind="click:virExp">
+                <a href="#virCon-tab" data-toggle="tab">经验</a>
+            </li>
+            <li id="con" data-bind="click:virCon">
+                <a href="#virCon-tab" data-toggle="tab">帮贡</a>
+            </li>
+            <li id="skill-exp" data-bind="click:virSkillexp">
+                <a href="#virCon-tab" data-toggle="tab">技能经验</a>
+            </li>
+            <li id="camp-pre" data-bind="click:virCamp">
+                <a href="#virCon-tab" data-toggle="tab">阵营威望</a>
+            </li>
+            <li id="mushroom1" data-bind="click:virMush1">
+                <a href="#virCon-tab" data-toggle="tab">蘑菇币 I</a>
+            </li>
+            <li id="mushroom2" data-bind="click:virMush2">
+                <a href="#virCon-tab" data-toggle="tab">蘑菇币 II</a>
+            </li>
+            <li id="mushroom3" data-bind="click:virMush3">
+                <a href="#virCon-tab" data-toggle="tab">蘑菇币 III</a>
+            </li>
+        </ul>
+
+        <div class="tab-content tabContent">
+            <div id="virCon-tab" class="tab-pane fade in active">
+                <table class="table table-condensed table-bordered table-style">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>货币种类</th>
+                            <th>获得数量</th>
+                            <th>获得后的总数量</th>
+                            <th>渠道</th>
+                            <th>描述</th>
+                        </tr>
+                    </thead>
+                    <tbody id="virCoinTotal" data-bind="foreach:DataList">
+                        <tr>
+                            <td data-bind="text:time"></td>
+                            <td data-bind="text:coinType"></td>
+                            <td data-bind="text:count"></td>
+                            <td data-bind="text:totalCount"></td>
+                            <td data-bind="text:channel"></td>
+                            <td data-bind="text: depict"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pager_1" class="fr"></div>
+            </div>
+        </div>
+        <!-- /.tab-content -->
+    </div>
+    <!-- /.main-content -->
+</div>
+<script src="/static/js/pages-js/log-sum/log-virCoin/log-virCoin.js"></script>

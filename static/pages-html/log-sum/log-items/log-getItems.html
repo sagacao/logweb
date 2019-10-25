@@ -1,0 +1,71 @@
+<div class="content-wrap" id="getItems">
+	
+	<div class="content-title">
+		<strong>物品日志 / 物品获取</strong>
+	</div>
+	
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+			<form role="form" class="form-inline mar-bottom30" id="getItemsForm">
+			    <div class="form-group mar-right10">
+			        <label class="col-sm-1 control-label">角色ID：</label>
+					<input type="text" class="form-control width95" id="roleId" list="roleid" datatype = "n" ignore='ignore' errormsg='请输入数字ID' data-bind = "value:roleId" autocomplete="off" />
+					<datalist id="roleid">
+						<!-- ko foreach: saveRoleid -->
+							<option data-bind="value: $data"></option>
+						<!-- /ko -->
+					</datalist>
+			    </div>
+			    
+				<div class="form-group">
+			        <label class="col-sm-1 control-label">获得物品ID：</label>
+					<input type="text" class="form-control width95" id="itemId" list="itemid" datatype = "n" ignore='ignore' errormsg='请输入数字ID' data-bind = "value:itemId" autocomplete="off" />
+					<datalist id="itemid">
+						<!-- ko foreach: saveItemid -->
+						<option data-bind="value: $data"></option>
+						<!-- /ko -->
+					</datalist>
+			    </div>
+			    
+			    <div class="form-group mar-left20">
+				    <div class="col-sm-offset-2 col-sm-10">
+				        <button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+				    </div>
+				</div>
+				<div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				        <em id="tipShow" class="tip" ></em>
+				    </div>
+				</div>
+   	  	 	</form>
+			<table class="table table-condensed table-bordered table-style">
+			    <thead>
+			        <tr>
+				        <th>角色ID</th>
+						<th>获得物品ID</th>
+						<th>物品数量</th>
+				        <th>变化数量</th>
+				        <th>获得途径</th>
+						<th>获得时间</th>
+						<th>描述</th>
+			        </tr>
+			    </thead>
+			    <tbody id="getItems_tbody" data-bind = "foreach:dataList">
+			        <tr>
+						<td data-bind = "text:playerId"></td>
+						<td data-bind = "text:itemId"></td>
+						<td data-bind = "text:count"></td>
+						<td data-bind = "text:changenum"></td>
+						<td data-bind = "text:typeName"></td>
+						<td data-bind = "text:logTime"></td>
+						<td data-bind = "text:depict"></td>
+			        </tr>
+			   </tbody>
+			</table>
+			<div id="pager" class="fr"></div>
+		</div>
+	</div>
+</div> 
+<script type="text/javascript" src="/static/js/pages-js/log-sum/log-items/log-getItems.js" ></script>
+
+

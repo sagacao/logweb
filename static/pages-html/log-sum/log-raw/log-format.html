@@ -1,0 +1,52 @@
+<div class="content-wrap" id="rawformat">
+        
+        <div class="content-title">
+            <strong>原始日志 / 查询分类日志</strong>
+        </div>
+        
+        <div class="content-main">
+            <div class="tab-content tabContent mar-top20">
+                <form role="form" class="form-inline mar-bottom30" id="rawformatForm">
+                    <div class="form-group mar-right10">
+                        <label class="col-sm-1 control-label">日志类型：</label>
+                        <select id="mailType" class="form-control font-bold" data-bind="options: logType,optionsText: function(item){return item.name},optionsValue: function(item){return item.name},value: selectedLogType">
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">关键字：</label>
+                        <input type="text" class="form-control width195" id="keywords" datatype = "*" ignore='ignore' errormsg='请输入关键字' data-bind = "value:keywords"  />
+                    </div>
+                    
+                    <div class="form-group mar-left20">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <em id="tipShow" class="tip" ></em>
+                        </div>
+                    </div>
+                </form>
+                <table class="table table-condensed table-bordered table-style">
+                    <thead>
+                        <tr>
+                            <th>source message</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rawformat_tbody" data-bind = "foreach: dataList">
+                        <tr>
+                            <td data-bind = "text: msg"></td>
+                        </tr>
+                   </tbody>
+                </table>
+                <div id="pager" class="fr"></div>
+            </div>
+        </div>
+    </div> 
+    <script type="text/javascript" src="/static/js/pages-js/log-sum/log-raw/log-format.js" ></script>
+    
+    
+    
+    

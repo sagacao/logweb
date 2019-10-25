@@ -1,0 +1,79 @@
+<div class="content-wrap" id="recharge">
+    <div class="content-title">
+        <strong>付费数据 / 充值</strong>
+    </div>
+    <div class="content-main">
+
+        <ul class="nav nav-tabs">
+            <li id="rechargeTag" data-bind="click:rechargeFn">
+                <a href="#rechargeWrap" data-toggle="tab">所有玩家充值</a>
+            </li>
+            <li id="incomeTag" data-bind="click:newRechargeFn">
+                <a href="#rechargeWrap" data-toggle="tab">新增玩家充值</a>
+            </li>
+        </ul>
+        
+        <div class="tab-content tabContent">
+            <div id="rechargeWrap" class="tab-pane fade">
+                <form role="form" class="form-inline mar-bottom30" style="margin-left:50px;">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label">选择服务器：</label>
+                        <select id="" class="form-control font-blod" data-bind="options:serverList1, value: selectedServer1" style="margin-right:20px;"></select>
+                        <select id="" class="form-control font-blod" data-bind="options:serverList2, value: selectedServer2" style="margin-right:20px;"></select>
+                        <select id="" class="form-control font-blod" data-bind="options:serverList3, value: selectedServer3" style="margin-right:20px;"></select>
+                        <select id="" class="form-control font-blod" data-bind="options:serverList4, value: selectedServer4" style="margin-right:20px;"></select>
+                        <select id="" class="form-control font-blod" data-bind="options:serverList5, value: selectedServer5" style="margin-right:20px;"></select>
+                    </div>
+                </form>
+                
+                <div class="chart-wrap">
+                    <div id="chart-content"></div>
+                </div>
+                <!-- 按时间统计 -->
+                <table class="table table-bordered table-condensed table-style mar-top20">
+                    <thead>
+                        <tr>
+                            <th scope="col" valign="top" rowspan="2" class="text highcharts-table-topheading" style="width: 730px;">时间</th>
+                            <th scope="col" colspan="2" class="text highcharts-table-topheading">统计</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:tableData" id="timeCount">
+                        <tr>
+                            <td data-bind="text:time">-</td>
+                            <td data-bind="text:sum">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- 按服务器统计 -->
+                <table class="table table-bordered table-condensed table-style mar-top20">
+                    <thead>
+                        <tr>
+                            <th scope="col" valign="top" rowspan="2" class="text highcharts-table-topheading" style="width: 730px;">服务器</th>
+                            <th scope="col" colspan="2" class="text highcharts-table-topheading">统计</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:tableTotal" id="serverCount">
+                        <tr>
+                            <td data-bind="text:servername">-</td>
+                            <td data-bind="text:cash">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- <div id="incomeWrap" class="tab-pane fade">
+
+            </div> -->
+
+            <!-- 数据定义 -->
+            <div class="data-tip">
+                <h2>数据定义：</h2>
+                <ul>
+                    <li>所有玩家充值：某日期，所有/个别服务器的当日充值总数</li>
+                    <li>新增玩家充值：某日期，当日新增的玩家在这一天进行的充值总数</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/pages-js/pay-relasis/recharge.js"></script>

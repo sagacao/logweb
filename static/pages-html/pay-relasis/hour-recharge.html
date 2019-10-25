@@ -1,0 +1,37 @@
+<div class="content-wrap" id="hour-recharge">
+    <div class="content-title">
+        <strong>付费数据 / 充值累计</strong>
+    </div>
+    <div class="content-main">
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="javascript:void(0);">充值累计</a></li>
+        </ul>
+        
+        <div class="tab-content tabContent">
+            <form role="form" class="form-inline mar-bottom30" style="margin-left:50px;">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">选择服务器：</label>
+                    <select id="" class="form-control font-blod" data-bind="options:serverList1, value: selectedServer1" style="margin-right:20px;"></select>
+                    <select id="" class="form-control font-blod" data-bind="options:serverList2, value: selectedServer2" style="margin-right:20px;"></select>
+                    <select id="" class="form-control font-blod" data-bind="options:serverList3, value: selectedServer3" style="margin-right:20px;"></select>
+                    <select id="" class="form-control font-blod" data-bind="options:serverList4, value: selectedServer4" style="margin-right:20px;"></select>
+                    <select id="" class="form-control font-blod" data-bind="options:serverList5, value: selectedServer5" style="margin-right:20px;"></select>
+                </div>
+            </form>
+
+            <div class="chart-wrap">
+                <div id="chart-content"></div>
+            </div>
+            
+            <!-- 数据定义 -->
+            <div class="data-tip">
+                <h2>数据定义：</h2>
+                <ul>
+                    <li>每小时充值：单位时间内充值数</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/pages-js/pay-relasis/hour-recharge.js"></script>

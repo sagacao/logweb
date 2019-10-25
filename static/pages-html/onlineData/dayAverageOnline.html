@@ -1,0 +1,40 @@
+<div class="content-wrap" id="dayAverageOnline">
+    <div class="content-title">
+        <strong>在线数据 / 日平均在线时长</strong>
+    </div>
+    <div class="content-main mar-bottom30">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">职业：</label>
+                    <select id="" class="form-control font-bold" data-bind="options:jobType,optionsText:'name',optionsValue:'id',value:selectedJobtype"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:math">查询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- /.content-main -->
+
+    <div class="content-title">
+        <strong>日平均在线时长</strong>
+    </div>
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <div class="chart-wrap">
+                <div id="chart-content"></div>
+            </div>
+
+            <!-- 数据定义 -->
+            <div class="data-tip">
+                <h2>数据定义：</h2>
+                <ul>
+                    <li>渠道设定：泰国单渠道（编号16），国内英雄双渠道（ 17国内英雄安卓 18英雄ios）。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/pages-js/onlineData/dayAverageOnline.js"></script>

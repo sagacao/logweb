@@ -1,0 +1,54 @@
+<div class="content-wrap" id="partnerBag">
+    <div class="content-title">
+        <strong>道具种类</strong>
+        <a class="export" href="#" target="_self"></a>
+    </div>
+
+    <div class="content-main">
+        <ul class="nav nav-tabs">
+            <li id="parequip" data-bind="click:partnerequip">
+                <a href="#partnerBag-tab" data-toggle="tab">侠客装备</a>
+            </li>
+            <li id="parexp" data-bind="click:partnerexp">
+                <a href="#partnerBag-tab" data-toggle="tab">侠客经验侠客经验道具</a>
+            </li>
+            <li id="parstone" data-bind="click:partnerstone">
+                <a href="#partnerBag-tab" data-toggle="tab">侠客碎片</a>
+            </li>
+            <li id="par" data-bind="click:partner">
+                <a href="#partnerBag-tab" data-toggle="tab">侠客</a>
+            </li>
+        </ul>
+
+        <div class="tab-content tabContent">
+            <div id="partnerBag-tab" class="tab-pane fade in active">
+                <table class="table table-condensed table-bordered table-style">
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>道具id(侠客id)</th>
+                            <th>类型</th>
+                            <th>渠道</th>
+                            <th>获得数量</th>
+                            <th>获得后数量</th>
+                        </tr>
+                    </thead>
+                    <tbody id="partnerBagTotal" data-bind="foreach:DataList">
+                        <tr>
+                            <td data-bind="text:time"></td>
+                            <td data-bind="text:items"></td>
+                            <td data-bind="text:type"></td>
+                            <td data-bind="text:channel"></td>
+                            <td data-bind="text:getCount"></td>
+                            <td data-bind="text:getedCount"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="pager_1" class="fr"></div>
+            </div>
+        </div>
+        <!-- /.tab-content -->
+    </div>
+    <!-- /.main-content -->
+</div>
+<script src="/static/js/pages-js/log-sum/log-partnerBag/log-partnerBag.js"></script>

@@ -1,0 +1,44 @@
+<div class="content-wrap" id="levelDis">
+    <div class="content-title">
+        <strong>等级分布 / 等级排行</strong>
+        <a href="#" class="export" id="priceExport" data-bind="click:exportExcel"></a>
+    </div>
+    <div class="content-main mar-bottom30">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">职业：</label>
+                    <select id="" class="form-control font-bold" data-bind="options:jobType,optionsText:'name',optionsValue:'id',value:selectedJobtype"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:math">查询</button>
+                    </div>
+                </div>
+            </form>
+            <!-- table -->
+            <table class="table table-condensed table-bordered table-style" id="levelRank">
+                <thead>
+                    <tr>
+                        <th>名次</th>
+                        <th>等级</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>职业</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:rank"></td>
+                        <td data-bind="text:level"></td>
+                        <td data-bind="text:id"></td>
+                        <td data-bind="text:name"></td>
+                        <td data-bind="text:job"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- /.content-main -->
+</div>
+<script src="/static/js/pages-js/level/levelRank.js"></script>

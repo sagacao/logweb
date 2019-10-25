@@ -1,0 +1,48 @@
+<div class="content-wrap" id="mallConsumption">
+	<div class="content-title">
+		<strong>用户分析 / 渠道用户</strong>
+		<a href="javascript:void(0);" class="export" target="_self" data-bind="click:exportExcel"></a>
+	</div>
+
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li id="dia_loss" data-bind="click:diaLoss">
+				<a href="#lossWrap" data-toggle="tab">钻石消耗</a>
+			</li>
+			<li id="magic_dia_loss" data-bind="click:magicLoss">
+				<a href="#lossWrap" data-toggle="tab">绑钻消耗</a>
+			</li>
+		</ul>
+		<!-- 图表 -->
+		<div class="tub-wrap">
+			<div id="chart-content"></div>
+		</div>
+		<!-- tab-content -->
+		<div class="tab-content tabContent">
+			<div id="lossWrap" class="tab-pane fade in active">
+				<table class="table table-condensed table-bordered table-style" id="consumMallTable">
+					<thead>
+						<tr>
+							<th>商城道具</th>
+							<th class="order-by" data-bind="click:countOrder">购买数量
+								<!-- <span class="icon-arrow-down"></span> -->
+							</th>
+							<th class="order-by" data-bind="click:diaOrder">消耗钻石
+								<!-- <span class="icon-arrow-down"></span> -->
+							</th>
+						</tr>
+					</thead>
+					<tbody id="mallLossTbody" data-bind="foreach: dataList">
+						<tr>
+							<td data-bind="text: toolType ? toolType:itemid"></td>
+							<td data-bind="text: count"></td>
+							<td data-bind="text: cost"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pager" class="fr"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/coinUse/mall.js"></script>

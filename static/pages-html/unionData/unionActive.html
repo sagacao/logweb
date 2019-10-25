@@ -1,0 +1,46 @@
+<div class="content-wrap" id="unionActive">
+    <div class="content-title">
+        <strong>公会数据 / 公会活动</strong>
+    </div>
+    <div class="content-main mar-bottom30">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">类型：</label>
+                    <select id="" class="form-control font-blod" data-bind="options:type,optionsText:'name',optionsValue:'id',value:selectedType"></select>
+                </div>
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="dataMath" data-bind="click:math">查询</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="content-title">
+        <strong>活动</strong>
+        <a href="#" class="export" id="priceExport" data-bind="click:exportExcel"></a>
+    </div>
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <table class="table table-condensed table-bordered table-style" id="activeTable">
+                <thead>
+                    <tr>
+                        <th>公会编号</th>
+                        <th>公会总人数</th>
+                        <th>第一次参与人数</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:id"></td>
+                        <td data-bind="text:totalNum"></td>
+                        <td data-bind="text:firstNum"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/static/js/pages-js/unionData/unionActive.js"></script>

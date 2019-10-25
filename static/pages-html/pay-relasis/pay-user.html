@@ -1,0 +1,73 @@
+<div class="content-wrap" id="payUser">
+	<div class="content-title">
+		<strong>付费分析 / 付费用户</strong>
+		<a class="export" href="javascript:void(0);" target="_self" data-bind="click:exportExcel"></a>
+	</div>
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li id="allPayUsers" data-bind="click:allPayUsers">
+				<a href="#allPayUsersWrap" data-toggle="tab">付费用户</a>
+			</li>
+			<li id="channelPayUsers" data-bind="click:channelPayUsers">
+				<a href="#channelPayUsersWrap" data-toggle="tab">渠道付费用户</a>
+			</li>
+		</ul>
+		<!-- 图表 -->
+		<div class="tub-wrap">
+			<div id="chart-content"></div>
+		</div>
+		<!-- tab-content -->
+		<div class="tab-content tabContent">
+			<!--付费用户-->
+			<div id="allPayUsersWrap" class="tab-pane fade">
+				<table class="table table-bordered tab-condensed table-style">
+					<thead>
+						<tr>
+							<th>时间</th>
+							<th>付费角色数</th>
+							<th>充值金额</th>
+						</tr>
+					</thead>
+					<tbody id="payUserTbody" data-bind="foreach:userDataList">
+						<tr>
+							<td data-bind="text:dimDay"></td>
+							<td data-bind="text:payerCount"></td>
+							<td data-bind="text:amount"></td>
+						</tr>
+					</tbody>
+					<!-- <div id="pager_1" class="fr"></div> -->
+				</table>
+			</div><!-- /付费用户 -->
+			<!--渠道付费用户-->
+			<div id="channelPayUsersWrap" class="tab-pane fade">
+				<table class="table table-condensed table-bordered table-style">
+					<thead>
+						<tr>
+							<th>渠道</th>
+							<th>付费角色数</th>
+							<th>充值金额</th>
+						</tr>
+					</thead>
+					<tbody id="payChannelTbody" data-bind="foreach:channelDataList">
+						<tr>
+							<td data-bind="text:channelidName"></td>
+							<td data-bind="text:payerCount"></td>
+							<td data-bind="text:amount"></td>
+						</tr>
+					</tbody>
+				</table>
+				<!-- <div id="pager_2" class="fr"></div> -->
+			</div><!-- /渠道付费用户 -->
+
+			<!-- 数据定义 -->
+			<div class="data-tip">
+				<h2>数据定义：</h2>
+				<ul>
+					<li>付费角色：某日期，某服务器进行充值的角色数。（不根据账号去重，不同服务器不去重）。</li>
+					<li>充值金额：某日期，某服务器充值的总金额。</li>
+				</ul>
+			</div>
+		</div><!-- /.tab-content -->
+	</div>
+</div>
+<script src="/static/js/pages-js/pay-relasis/pay-user.js"></script>

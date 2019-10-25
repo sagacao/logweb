@@ -1,0 +1,97 @@
+<div class="content-wrap" id="logPartner">
+
+    <div class="content-title">
+        <strong>虚拟日志 / 侠客道具</strong>
+    </div>
+
+    <div class="content-main">
+        <div class="tab-content tabContent mar-top20">
+            <form role="form" class="form-inline mar-bottom30" id="logPartnerForm">
+
+                <div class="form-group mar-right10">
+                    <label class="col-sm-1 control-label">角色ID：</label>
+                    <input type="text" class="form-control width95" list="roleid" id="roleId" datatype="n" ignore='ignore' errormsg='请输入数字ID'
+                        data-bind="value:roleId" autocomplete="off"/>
+                    <datalist id="roleid">
+                        <!-- ko foreach: saveRoleid -->
+                        <option data-bind="value: $data"></option>
+                        <!-- /ko -->
+                    </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">产出/消耗：</label>
+                    <select id="mailType" class="form-control font-bold" data-bind="options: numType,optionsText: function(item){return item.name},optionsValue: function(item){return item.id},value: selectedNumType,event:{change:changeNumValue}">
+                    </select>
+                </div>
+
+                <div class="form-group mar-left20">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <em id="tipShow" class="tip"></em>
+                    </div>
+                </div>
+
+            </form>
+            <p style="font-size:17px;font-weight: 700; margin-bottom: 10px; border-left: 2px solid #3590A5; padding: 5px 10px; background: #eee; width: 150px;">侠客魂石</p>
+            <table class="table table-condensed table-bordered table-style">
+                <thead>
+                    <tr>
+                        <th>角色ID</th>
+                        <th>角色等级</th>
+                        <th>道具ID</th>
+                        <th>变化数量</th>
+                        <th>记录时间</th>
+                        <th>渠道</th>
+                        <th>总数</th>
+                    </tr>
+                </thead>
+                <tbody id="logpartner_soul_tbody" data-bind="foreach:dataList_partner_soul">
+                    <tr>
+                        <td data-bind="text: playerId"></td>
+                        <td data-bind="text: lev"></td>
+                        <td data-bind="text: id"></td>
+                        <td data-bind="text: gainnum"></td>
+                        <td data-bind="text: logTime"></td>
+                        <td data-bind="text: reason"></td>
+                        <td data-bind="text: totalnum"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="font-size:17px;font-weight: 700; margin-bottom: 10px; border-left: 2px solid #3590A5; padding: 5px 10px; background: #eee; width: 150px;">侠客</p>
+            <table class="table table-condensed table-bordered table-style">
+                <thead>
+                    <tr>
+                        <th>角色ID</th>
+                        <th>角色等级</th>
+                        <th>道具ID</th>
+                        <th>变化数量</th>
+                        <th>记录时间</th>
+                        <th>渠道</th>
+                        <th>总数</th>
+                    </tr>
+                </thead>
+                <tbody id="logpartner_tbody" data-bind="foreach:dataList_pantner">
+                    <tr>
+                        <td data-bind="text: playerId"></td>
+                        <td data-bind="text: lev"></td>
+                        <td data-bind="text: id"></td>
+                        <td data-bind="text: gainnum"></td>
+                        <td data-bind="text: logTime"></td>
+                        <td data-bind="text: reason"></td>
+                        <td data-bind="text: totalnum"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="pager" class="fr"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/static/js/pages-js/log-sum/log-money/log-partner.js"></script>

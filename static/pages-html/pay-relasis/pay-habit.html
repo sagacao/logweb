@@ -1,0 +1,118 @@
+<div class="content-wrap" id="payHabit">
+	<div class="content-title">
+		<strong>付费分析</strong>
+		<a href="#" class="export" id="priceExport" target="_self" data-bind="click:exportExcel1"></a>
+	</div>
+	<div class="content-main clearfix" style="margin-bottom:20px;">
+		<ul class="nav nav-tabs">
+			<li id="habit_get" data-bind="click:priceHabit">
+				<a href="#priceHabitPage" data-toggle="tab">付费习惯</a>
+			</li>
+			<li id="gold_get" data-bind="click:priceGold">
+				<a href="#priceHabitPage" data-toggle="tab">钻石</a>
+			</li>
+			<li id="month_get" data-bind="click:priceMonth">
+				<a href="#priceHabitPage" data-toggle="tab">月卡</a>
+			</li>
+			<li id="fund_get" data-bind="click:priceFund">
+				<a href="#priceHabitPage" data-toggle="tab">基金</a>
+			</li>
+			<li id="week_get" data-bind="click:priceWeek">
+				<a href="#priceHabitPage" data-toggle="tab">周卡</a>
+			</li>
+			<li id="daylimit_get" data-bind="click:priceDayLimit">
+				<a href="#priceHabitPage" data-toggle="tab">每日限购</a>
+			</li>
+			<li id="special_get" data-bind="click:priceSpecial">
+				<a href="#priceHabitPage" data-toggle="tab">特殊限购</a>
+			</li>
+		</ul>
+		<div class="tab-content tabContent">
+			<div id="chart" style="width:100%;height:400px;" data-bind="visible:canvassApShow"></div>
+
+			<div class="excel" style="display: none;" data-bind="visible: excelApShow">
+				<table class="table table-bordered tab-condensed table-style excel-he" id="payAnalysisTable">
+					<thead>
+						<tr>
+							<th>充值类型</th>
+							<th>充值角色数</th>
+							<th>充值次数</th>
+						</tr>
+					</thead>
+					<tbody id="payAmountTbody" data-bind="foreach:priceDataList">
+						<tr>
+							<td data-bind="text:chargeId"></td>
+							<td data-bind="text:payerCount"></td>
+							<td data-bind="text:payCount"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- /.excel -->
+		</div><!-- /.tab-content -->
+
+		<!--图标切换开始-->
+		<div id="switch" class="fl">
+			<a href="javascript:void(0)" data-bind="click: chartApShow">
+				<font class="icon_pic"></font>
+			</a>
+			<a href="javascript:void(0)" data-bind="click: tableApShow">
+				<font class="icon_table"></font>
+			</a>
+		</div><!-- /#switch -->
+	</div><!-- /.content-main -->
+
+	<div class="content-title">
+		<strong>付费时间分布</strong>
+		<a href="#" class="export" id="timeExport" target="_self" data-bind="click:exportExcel2"></a>
+	</div>
+	<div class="content-main clearfix">
+		<div class="form-group">
+			<label class="col-sm-1 control-label" style="display:inline-block;margin-left:30px;">选择时间：</label>
+			<input class="form-control habit_datetime" id="timeSpread1" name="timeSpread1" type="text" value="" style="width:100px;margin-right:15px;" readonly />
+			<input class="form-control habit_datetime" id="timeSpread2" name="timeSpread2" type="text" value="" style="width:100px;margin-right:15px;"
+			 readonly />
+			<input class="form-control habit_datetime" id="timeSpread3" name="timeSpread3" type="text" value="" style="width:100px;margin-right:15px;"
+			 readonly />
+			<input class="form-control habit_datetime" id="timeSpread4" name="timeSpread4" type="text" value="" style="width:100px;margin-right:15px;"
+			 readonly />
+			<input class="form-control habit_datetime" id="timeSpread5" name="timeSpread5" type="text" value="" style="width:100px;margin-right:15px;"
+			 readonly />
+			<input class="form-control habit_datetime" id="timeSpread6" name="timeSpread6" type="text" value="" style="width:100px;margin-right:15px;"
+			 readonly />
+			<input class="form-control habit_datetime" id="timeSpread7" name="timeSpread7" type="text" value="" style="width:100px;margin-right:15px;"
+			 readonly />
+		</div>
+		
+		<ul class="nav nav-tabs">
+			<li id="payMoney" class="active" data-bind = "click:timeSpreadMoney">
+				<a href="#pay_money" data-toggle="tab">付费金额</a>
+			</li>
+			<li id="payAccount" data-bind="click:timeSpreadAccount">
+				<a href="#pay_account" data-toggle="tab">付费角色数</a>
+			</li>
+		</ul>
+		<!--付费分析开始-->
+		<div class="tab-content tabContent">
+			<div id="pay_money" class="tab-pane fade active in">
+				<div class="chart-wrap">
+					<div id="chart-content1"></div>
+				</div>
+			</div>
+			<div id="pay_account" class="tab-pane fade">
+				<div class="chart-wrap">
+					<div id="chart-content2"></div>
+				</div>
+			</div>
+
+			<!-- 数据定义 -->
+			<div class="data-tip">
+				<h2>数据定义：</h2>
+				<ul>
+					<li>付费角色数：进行过付费的角色总数</li>
+				</ul>
+			</div>
+		</div><!-- /.tab-content -->
+	</div><!-- /.content-main -->
+	
+</div>
+<script src="/static/js/pages-js/pay-relasis/pay-habit.js"></script>

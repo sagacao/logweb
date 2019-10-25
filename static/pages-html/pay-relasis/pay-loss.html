@@ -1,0 +1,45 @@
+<div class="content-wrap" id="controlLoss">
+	<div class="content-title">
+		<strong>付费分析 / 付费流失</strong>
+		<a href="#" target="_self" class="export"></a>
+	</div>
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li id="pay1_loss" data-bind="click:payLoss1">
+				<a href="#controlLossWrap" data-toggle="tab">首次付费流失</a>
+			</li>
+			<li id="pay2_loss" data-bind="click:payLoss2">
+				<a href="#controlLossWrap" data-toggle="tab">2次付费流失</a>
+			</li>
+		</ul>
+		<!-- 图表 -->
+		<div class="tub-wrap">
+			<div id="chart-content"></div>
+		</div>
+		<!-- tab-content -->
+		<div class="tab-content tabContent">
+			<div id="controlLossWrap" class="tab-pane fade in active">
+				<table class="table table-condensed table-bordered table-style">
+					<thead>
+						<tr>
+							<th>日期</th>
+							<th>3日流失率</th>
+							<th>7日流失率</th>
+							<th>14日流失率</th>
+						</tr>
+					</thead>
+					<tbody id="controlLossTbody" data-bind="foreach:dataList">
+						<tr>
+							<td data-bind="text: dimDay"></td>
+							<td data-bind="text: dlr3"></td>
+							<td data-bind="text: dlr7"></td>
+							<td data-bind="text: dlr14"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pager" class="fr"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/pay-relasis/pay-loss.js"></script>

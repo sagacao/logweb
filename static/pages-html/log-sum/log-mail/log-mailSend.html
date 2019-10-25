@@ -1,0 +1,75 @@
+<div class="content-wrap" id="logMailSend">
+	<div class="content-title">
+		<strong>邮件日志 / 邮件发送日志</strong>
+	</div>
+
+	<div class="content-main">
+		<div class="tab-content tabContent mar-top20">
+				<form role="form" class="form-inline mar-bottom30" id="logMailSendForm">
+				
+					<div class="form-group mar-right10">
+						<label class="col-sm-1 control-label">发送方ID：</label>
+						<input type="text" class="form-control width95" id="senderId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:senderId"
+						/>
+					</div>
+				
+					<div class="form-group mar-right10">
+						<label class="col-sm-1 control-label">接收方ID：</label>
+						<input type="text" class="form-control width95" id="receiverId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:receiverId"
+						/>
+					</div>
+				
+					<div class="form-group">
+						<label class="col-sm-1 control-label">邮件ID：</label>
+						<input type="text" class="form-control width95" id="mailId" datatype="n" ignore='ignore' errormsg='请输入数字ID' data-bind="value:mailId"
+						/>
+					</div>
+				
+					<div class="form-group mar-left20">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-info" id="accountIdMatch">查询</button>
+						</div>
+					</div>
+				
+					<div class="form-group mar-left20">
+						<select id="mailType" class="form-control font-bold" data-bind="options: mailTypes,optionsText: function(item){return item.name},optionsValue: function(item){return item.id},value: selectedMailType,optionsCaption: 'Choose...',event:{change:changeValue}">
+						</select>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<em id="tipShow" class="tip"></em>
+						</div>
+					</div>
+				
+				</form>
+				<table class="table table-condensed table-bordered table-style">
+					<thead>
+						<tr>
+							<th>发送方ID</th>
+							<th>接受方ID</th>
+							<th>邮件类型</th>
+							<th>邮件ID</th>
+							<th>附件钻石</th>
+							<th>附件物品ID</th>
+							<th>物品数量</th>
+							<th>发送时间</th>
+						</tr>
+					</thead>
+					<tbody id="logMailSend_tbody" data-bind="foreach:dataList">
+						<tr>
+							<td data-bind="text: senderId"></td>
+							<td data-bind="text: receiverId"></td>
+							<td data-bind="text: mailType"></td>
+							<td data-bind="text: mailId"></td>
+							<td data-bind="text: gold"></td>
+							<td data-bind="text: itemId"></td>
+							<td data-bind="text: itemCount"></td>
+							<td data-bind="text: logTime"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pager" class="fr"></div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/log-sum/log-mail/log-mailSend.js"></script>

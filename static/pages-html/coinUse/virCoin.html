@@ -1,0 +1,82 @@
+<div class="content-wrap" id="virtualCoinControl">
+	<div class="content-title">
+		<strong>游戏监控 / 货币排行</strong>
+		<a class="export" href="javascript:void(0);" target="_self" data-bind="click:exportExcel"></a>
+	</div>
+
+	<div class="content-main">
+		<ul class="nav nav-tabs">
+			<li id="goldRank" data-bind="click:goldRank">
+				<a href="#goldRankWrap" data-toggle="tab">金币排名</a>
+			</li>
+			<li id="diaRank" data-bind="click:diaRank">
+				<a href="#goldRankWrap" data-toggle="tab">钻石排名</a>
+			</li>
+			<li id="magicDiaRank" data-bind="click:magicDiaRank">
+				<a href="#goldRankWrap" data-toggle="tab">绑钻排名</a>
+			</li>
+			<li id="moneyRank" data-bind="click:moneyRank">
+				<a href="#moneyRankWrap" data-toggle="tab">充值排名</a>
+			</li>
+		</ul>
+
+		<div id="" class="tab-content tabContent">
+			<!--金币、钻石、绑钻排名-->
+			<div id="goldRankWrap" class="tab-pane fade">
+				<form role="form" class="form-inline mar-bottom30" id="actListTotalForm">
+					<div class="form-group">
+						<label class="col-sm-1 control-label" style="font-weight:700;">截止时间：</label>
+						<input type="text" class="form-control endTimeOnly width165" name="timeEnd" data-bind="value: endTimeOnly" readonly>
+					</div>
+				</form>
+				<table class="table table-condensed  table-bordered table-striped table-style" id="moneyRankTable">
+					<thead>
+						<tr>
+							<th>角色ID</th>
+							<th>角色昵称</th>
+							<th>区服</th>
+							<th>数量</th>
+						</tr>
+					</thead>
+					<tbody id="goldRankTbody" data-bind="foreach:goldDataList">
+						<tr>
+							<td data-bind="text:playerId"></td>
+							<td data-bind="text:playerName"></td>
+							<td data-bind="text:zeusidName"></td>
+							<td data-bind="text:moneyNum"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pageClick_1" class="fr"></div>
+			</div>
+			<!--充值排名-->
+			<div id="moneyRankWrap" class="tab-pane fade">
+				<div class="fr mar-bottom30">
+					<button class="btn btn-info" data-bind="click:getData">获取数据</button>
+				</div>
+				<table class="table table-condensed  table-bordered table-striped table-style" id="rechargeTable">
+					<thead>
+						<tr>
+							<th>角色ID</th>
+							<th>充值金额</th>
+							<th>金币消耗</th>
+							<th>钻石消耗</th>
+							<th>绑钻消耗</th>
+						</tr>
+					</thead>
+					<tbody id="moneyRankTbody" data-bind="foreach:moneyDataList">
+						<tr>
+							<td data-bind="text:playerId"></td>
+							<td data-bind="text:selfRecharge"></td>
+							<td data-bind="text:moneyCost"></td>
+							<td data-bind="text:goldCost"></td>
+							<td data-bind="text:bindGoldCost"></td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="pageClick_money" class="fr"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/static/js/pages-js/coinUse/virCoin.js"></script>

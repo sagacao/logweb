@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内部数据展示</title>
+    <link rel="icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/js/bootstrap/bootstrap-2.3.2.css">
+    <link rel="stylesheet" href="/static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/js/bootstrap-fileinput-master/css/fileinput.min.css">
+    <link rel="stylesheet" href="/static/js/layer/skin/layer.css">
+    <link rel="stylesheet" href="/static/js/ztree.3.5.26/zTreeStyle/zTreeStyle.css">
+    <link rel="stylesheet" href="/static/js/ztree.3.5.26/zTreeStyle/zTreeRightStyle.css">
+    <link rel="stylesheet" href="/static/js/validform/validform.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/jquery/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="user">
+            <div class="fr">
+                <span class="mar-right10 changePass" data-toggle="modal" data-target="#passwordModal" data-backdrop="true" data-keyboard="true">修改密码</span>
+                <span class="user-name" data-bind="text:userName"></span>
+                <span class="exit">
+                    <a href="/static/login.html" data-bind="click:logout">退出</a>
+                </span>
+            </div>
+        </div>
+        <div class="toptitle">
+            <!-- System & Time -->
+            <div class="titleContainer fl">
+                <strong>
+                    <a href="javascript:void(0)">数据中心</a>
+                </strong>
+                <!-- Select System -->
+                <span class="right-arrow" style="display:none;" data-bind="visible:typeOfSystem"></span>
+                <div class="boxSlect dropdown" id="systemDropdownSelect" style="display: none;" data-bind="visible: typeOfSystem">
+                    <div class="SelectPlatform dropdown-toggle" data-toggle="dropdown">
+                        <font role="tip">
+                            <img class="ios-img" src="/static/img/IOS_icon.png" data-bind="visible:iosLogo">
+                            <img class="android-img" src="/static/img/Android_icon.png" data-bind="visible:androidLogo">
+                        </font>
+                        <em></em>
+                    </div>
+                    <ul class="dropdown-menu" role="menu" data-bind="foreach: systemList">
+                        <li data-bind="attr:{id:id},click:$parent.systemLogo">
+                            <a href="javascript:void(0)" data-bind="text:name"></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Select Time -->
+                <span class="right-arrow" style="display: none;" data-bind="visible: filterByDate"></span>
+                <div class="fl dropdown" id="timeDropdownSelect" style="display: none;" data-bind="visible: filterByDate">
+                    <div id="dropdown_time" class="SelectPlatform" class="dropdown-toggle" data-toggle="dropdown">
+                        <a class="time-start"></a> <span data-bind="visible:onlyTime">~</span><a class="time-end" data-bind="visible:onlyTime"></a>
+                        <em></em>
+                    </div>
+                    <ul class="dropdown-menu time-picker" role="menu" data-bind="click:timePicker,clickBubble: false">
+                    <li class="time-top">
+                        <ul>
+                            <li data-bind="click:today, clickBubble: false">今日 |</li>
+                            <li data-bind="click:yesterday, clickBubble: false">昨日 |</li>
+                            <li id="last_seven" data-bind="click:lastSeven, clickBubble: false">近7日 |</li>
+                            <li data-bind="click:lastThirty, clickBubble: false">近30日 |</li>
+                            <li data-bind="click:timeAll, clickBubble: false">全部</li>
+                        </ul>
+                    </li>
+                    <ul>
+                        <li class="select-time form-horizontal clearfix">
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label"> 自定&nbsp; </label>
+                                <div class="col-sm-1">
+                                    <input class="form-control form_datetime" id="deStartTime" name="deStartTime" type="text" value="" data-bind="value: deStartTime"
+                                        readonly />
+                                </div>
+                            </div>
+                            <div class="form-group" data-bind="visible:onlyTime">
+                                <label class="col-sm-1 control-label"> 到&nbsp;</label>
+                                <div class="col-sm-1">
+                                    <input class="form-control form_datetime" id="deEndTime" name="deEndTime" type="text" value="" data-bind="value: deEndTime"
+                                        readonly/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="error" style="display: none;" data-bind="visible:timeErrorShow">日期选择有误！</li>
+                        <li class="submitBtn">
+                            <button id="reset" class="btn btn-warning" data-bind="click: resetTime">重置</button>
+                            <button id="ensure" class="btn btn-info" data-bind="disable:timeErrorShow,click: correctTime">确定</button>
+                        </li>
+                    </ul>
+                </div><!-- timeDropdownSelect -->
+                
+            </div><!-- System & Time -->
+            <!-- Channel & Zeuid -->
+            <div class="fr dropselect ">
+                <div id="channel_wrap" class="btn-group fl" style="display: none;" data-bind="visible: filterByChannel">
+                    <input id="channel" class="form-control cloth dropdown-toggle" name="channel" type="text" placeholder="请输入渠道" value="" data-toggle="dropdown"
+                        data-bind="value:channelIdChange" />
+                    <em class="go" id="channelGo" data-bind="click:channelGo">Go</em>
+                    <!-- <ul class="dropdown-menu valueChange channelLis" role="menu" data-bind="foreach: channelidList">
+                        <li data-bind="attr:{id:channelid},click: getChannelValue">
+                            <a href="javascript:void(0)" data-bind="text:name"></a>
+                        </li>
+                    </ul> -->
+                </div><!-- channel_wrap -->
+                <div id="cloth_wrap" class="btn-group fl" style="display: none;" data-bind="visible:filterByZeuid">
+                    <input id="areaClothing" class="form-control cloth dropdown-toggle" name="areaClothing" type="search" placeholder="请输入区服"
+                        data-toggle="dropdown" data-bind="value:zeusidChange" />
+                    <em class="go" id="serverGo" data-bind="click:serverGo">Go</em>
+                    <ul class="dropdown-menu valueChange clothLis" role="menu" data-bind="foreach: zeuidList">
+                        <li data-bind="attr:{id:zeusid},click: $parent.getServerValue">
+                            <a href="javascript:void(0)" data-bind="text:name"></a>
+                        </li>
+                    </ul>
+                </div><!-- cloth_wrap -->
+            </div><!-- Channel & Zeuid -->
+        </div><!-- toptitle -->
+    </header>
+    <div class="mainContainer">
+        <aside>
+            <ul id="tree" class="ztree"></ul>
+        </aside>
+        <div class="pageContainer">
+            
+        </div>
+    </div><!-- /.container -->
+    <!-- modal -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title font-red" id="myModalLabel">为了您的账户安全，首次登陆请修改密码，新密码不得与初始密码（123456）相同！</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal changePassForm" role="form">
+                        <div class="form-group">
+                            <label for="oldPassword" class="col-sm-1 control-label">旧密码：</label>
+                            <input type="text" class="form-control" id="oldPassword" name="oldPassword" value="" placeholder="请输入旧密码" autocomplete="off"
+                                data-bind="value:oldPassword">
+                            <span class="Validform_checktip"></span>
+                        </div>
+                        <div class="form-group" id="androidId" style="margin-bottom:10px;">
+                            <label for="newPassword" class="col-sm-1 control-label">新密码：</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="newPassword" name="newPassword" value="" placeholder="请输入新密码" autocomplete="off"
+                                    data-bind="value:newPassword">
+                                <span class="Validform_checktip"></span>
+                            </div>
+                        </div>
+                        <div class="modal-footer modalFooter">
+                            <button type="submit" class="btn btn-info" id="storePass">
+                                保存
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script src="/static/js/bootstrap/bootstrap-3.3.7.min.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="/static/js/knockout/knockout-3.4.0.min.js"></script>
+    <script src="/static/js/layer/layer.js"></script>
+    <script src="/static/js/common/common.js"></script>
+    <script src="/static/js/common/md5.js"></script>
+    <script src="/static/js/common/page.js"></script>
+    <script src="/static/js/validform/Validform_v5.3.2_min.js"></script>
+    <script src="/static/js/spin/spin.min.js"></script>
+    
+    <script src="/static/js/ztree.3.5.26/jquery.ztree.core.js"></script>
+    <script src="/static/js/ztree.3.5.26/jquery.ztree.excheck.min.js"></script>
+
+    <script src="/static/js/echarts/echarts.min.js"></script>
+
+    <script src="/static/js/highcharts/highcharts.js"></script>
+    <script src="/static/js/highcharts/modules/exporting.js"></script>
+    <script src="/static/js/highcharts/modules/offline-exporting.js"></script>
+    <script src="/static/js/highcharts/modules/export-data.js"></script>
+    <!-- <script src="/static/js/highcharts/modules/export-csv.js"></script> -->
+    <script src="/static/js/highcharts/modules/heatmap.js"></script>
+    <script src="/static/js/highcharts/modules/highcharts-zh_CN.js"></script>
+    
+    <script src="/static/js/jquery.table2excel/jquery.table2excel.js"></script>
+    
+    <script src="/static/js/bootstrap-fileinput-master/js/fileinput.min.js"></script>
+    <script src="/static/js/bootstrap-fileinput-master/js/locales/zh.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <script>
+        $.ajaxSetup({
+            cache: false //关闭AJAX相应的缓存 
+        });
+        var sp = document.createElement("script");
+        sp.src = "/static/js/index.js?x=" + Math.random();
+        sp.type = "text/javascript";
+        $("body")[0].appendChild(sp);
+    </script>
+    <!-- <script src='/static/js/index.js?"+Math.random()"'></script> -->
+</body>
+</html>

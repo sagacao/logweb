@@ -1,0 +1,58 @@
+<div class="content-wrap" id="unionList">
+    <div class="content-title" data-bind="css:{ expandTitle: isExpand }">
+        <strong>公会数据 / 公会列表</strong>
+        <a href="#" class="export" id="priceExport" data-bind="click:exportExcel"></a>
+        <span>展开</span>
+    </div>
+    <div class="content-main mar-bottom30" id="contentMain" style="position:relative">
+        <div class="tab-content tabContent mar-top20">
+            <table class="table table-condensed table-bordered table-style" id="unionTable">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名字</th>
+                        <th>等级</th>
+                        <th>阵营</th>
+                        <th>帮主</th>
+                        <th>帮主ID</th>
+                        <th>状态</th>
+                        <th>创建时间</th>
+                        <th class="noExl">操作</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:dataList">
+                    <tr>
+                        <td data-bind="text:number"></td>
+                        <td data-bind="text:name"></td>
+                        <td data-bind="text:level"></td>
+                        <td data-bind="text:camp"></td>
+                        <td data-bind="text:leader"></td>
+                        <td data-bind="text:leaderid"></td>
+                        <td data-bind="text:state"></td>
+                        <td data-bind="text:brithday"></td>
+                        <td><button type="button" class="btn btn-info" >选择</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="content-title" data-bind="visible:isShow" style="position:relative;">
+        <strong>公会信息</strong>
+    </div>
+    <div class="content-main mar-bottom30" data-bind="visible:isShow" style="position:relative;">
+        <div class="tab-content tabContent mar-top20">
+            <div class="form-group mar-left20">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-info" id="preDay" data-bind="click:preDay">&lt; 前一天</button>
+                    <button class="btn btn-info" id="nextDay" data-bind="click:nextDay">后一天 &gt;</button>
+                </div>
+            </div>
+            <div class="chart-wrap">
+                <div id="chart-content"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/pages-js/unionData/unionList.js"></script>
